@@ -1,0 +1,138 @@
+%\RequirePackage{filecontents}
+%\begin{filecontents}{bibliography_en.bib}
+%@article{auth2008,
+%	Author = {First Author, Second Author},
+%	Journal = {Journal title},
+%	Number = {4},
+%	Pages = {111--114},
+%	Title = {Article title},
+%	Volume = {1},
+%	Year = {2008}}
+%\end{filecontents}
+
+
+\documentclass[11pt,a4paper,roman]{moderncv}
+\usepackage[utf8]{inputenc}
+\usepackage[scale=0.82]{geometry}
+\usepackage[shortcuts]{extdash}
+\usepackage{etoolbox}
+
+\usepackage[unicode]{hyperref}
+\definecolor{linkcolor}{HTML}{4078C0}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolor, linkcolor=linkcolor}
+
+% theme: casual (default), classic, oldstyle, banking
+\moderncvstyle{classic}
+
+% color: blue (default), orange, green, red, purple, grey, black
+\moderncvcolor{orange}
+
+% Name and contact information
+\firstname{Oleksandr}
+\familyname{Gurin}
+\title{Software engineer}
+\address{Kyiv, Ukraine}
+\mobile{+38 096 878-92-02}
+\email{alek.gurin@gmail.com}
+\social[github]{aleksandergurin}
+%\homepage {homepage.url/\textasciitilde username/}
+%\homepage {oleksandrgurin.com}
+\photo[80pt][0.4pt]{img/photo}
+
+
+\begin{document}
+
+\makecvtitle
+
+%\section{Brief description}
+%\cvline{}{I'm experienced developer...}
+%\medskip
+
+\section{Education}
+
+\cventry{June 2009}
+        {MSc in Theoretical Physics}
+        {Taras Shevchenko National University of Kyiv}{}{}{}
+
+\cventry{Sept. 2009--\\May 2011}
+        {PhD student (dropped out)}
+        {Institute of Physics of the National Academy of Sciences of Ukraine}{}{}{}
+
+
+\section{Employment History}
+
+\cventry
+    {Sept. 2014 --\\Present}
+    {Python developer}
+    {Freelance}
+    {}{}
+    {Developed some personal projects.\newline}
+
+\cventry
+    {Sept. 2013 --\\Sep. 2014}
+    {Java developer}
+    {\href{http://playtech.com/}{Playtech}}
+    {Kyiv}{Ukraine}
+    {Participated in development of core library for
+     cross-platform (html5, android, ios) games.\newline}
+
+\cventry
+    {Aug. 2011 --\\Sept. 2013}
+    {C\nolinebreak\hspace{-.05em}\raisebox{.3ex}{\footnotesize +}
+      \nolinebreak\hspace{-.3em}\raisebox{.3ex}{\footnotesize +}, Objective-C developer}
+    {\href{http://mackiev.com/}{SMK}}
+    {Kyiv}{Ukraine}
+    {Developed desktop applications for Mac OS.}
+
+
+\medskip
+
+
+\section{Technical skills}
+
+\cvitem{}{Good background in mathematics, data structures and algorithms,}
+
+\cvitem{}{programming paradigms (functional, object-oriented, procedural).}
+
+\cvitem{Methodologies}
+       {Test-driven development, continuous integration, scrum.}
+
+\cvitem{Languages}
+       {Python, Java, C, JavaScript, Lisp.}
+
+\cvitem{Server-side}
+       {Flask, Jinja, SQLAlchemy, RabbitMQ, REST, Microservices, Docker.}
+
+\cvitem{Clien-side}
+       {HTML, CSS, JavaScript, AngularJS,
+        Single page application, Mobile applications.}
+
+\cvitem{Databases}
+       {SQL (PostgreSQL, SQLite), NoSQL (Redis).}
+
+\cvitem{Other}
+       {Experience with linux system programming, socket programming.}
+    
+\medskip
+
+
+%\nocite{*}
+%\renewcommand{\bibliographyitemlabel}{[\arabic{enumiv}]}
+%\bibliographystyle{unsrt}
+%\begin{flushleft}
+%\bibliography{bibliography_en}
+%\end{flushleft}
+%\medskip
+
+\section{Languages}
+\cvitemwithcomment{English}{Upper intermediate}{}
+\cvitemwithcomment{Russian}{Native}{}
+\cvitemwithcomment{Ukrainian}{Native}{}
+
+\medskip
+
+\section{Interests}
+\cvitem{}{Mathematics, piano, guitar}
+
+\end{document}
+
