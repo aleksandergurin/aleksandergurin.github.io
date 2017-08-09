@@ -3,8 +3,11 @@
 - Boards of Canada
 - Four Tet
 - LFO
+- mind.in.a.box
 - Monolake
 - Plaid
 - Telefon Tel Aviv
+- The Chemical Brothers
+- The Crystal Method
 - The Future Sound of London
 
