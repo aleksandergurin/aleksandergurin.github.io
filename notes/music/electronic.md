@@ -1,6 +1,8 @@
 - Aphex Twin
 - Autechre
 - Boards of Canada
+- deadmau5
+- Fluke
 - Four Tet
 - LFO
 - mind.in.a.box
