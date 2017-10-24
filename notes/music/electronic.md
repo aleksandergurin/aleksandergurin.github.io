@@ -1,6 +1,7 @@
 - Aphex Twin
 - Autechre
 - Boards of Canada
+- Bola (Darrell Fitton)
 - deadmau5
 - Fluke
 - Four Tet
