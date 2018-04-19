@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/white.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section>
+                <h2>Styled components</h2>
+            </section>
+
+            <section>
+                <h3>How to style React components?</h3>
+                <ul class="fragment">
+                    <li>
+                        CSS in .css
+                        <ul class="fragment">
+                            <li>String identifiers</li>
+                            <li>CSS modules</li>
+                        </ul>
+                    </li>
+                    <li>
+                        CSS in .js
+                        <ul class="fragment">
+                            <li>Inline</li>
+                            <li>With processing</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Simple example</h3>
+                <pre><code class="hljs" data-trim>
+                    <div id="app"></div>
+                    <script>
+                        styled.injectGlobal`
+                            body { font-family: sans-serif; }
+                        `;
+                        const Title = styled.default.h1`
+                            color: palevioletred;
+                        `;
+                        ReactDOM.render(
+                            React.createElement(Title, null, 'Hello style'),
+                            document.getElementById('app')
+                        );
+                    </script>
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Tagged templates</h3>
+                <pre><code class="hljs" data-trim>
+                    function fn(strArray, ...vars) {
+                        console.log(strArray, vars);
+                    }
+
+                    fn`one: ${1}, two: ${2}`;
+
+                    /* Output:
+                        Array [ "one ", ", two ", "" ]
+                        Array [ 1, 2 ]
+                    */
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Examples</h3>
+            </section>
+
+            <section>
+                <h3>Passed props</h3>
+                <pre><code class="hljs" data-trim>
+                    const dimCss = css`
+                        opacity: 0.7;
+                        background-color: ${
+                            props => props.invert && 'white' || 'black'
+                        };
+                        width: 100%;
+                        height: 100%;
+                    `;
+                    const DimmedInfo = styled.p`
+                        ${props => props.dim && dimCss}
+                        font-weight: bold;
+                    `;
+                    render(&lt;DimmedInfo invert /&gt;, domElem);
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Extending Styles</h3>
+                <pre><code class="hljs" data-trim>
+                    const Button = styled.button`
+                        color: palevioletred;
+                        font-size: 1em;
+                        margin: 1em;
+                        padding: 0.25em 1em;
+                        border: 2px solid palevioletred;
+                        border-radius: 3px;
+                    `;
+
+                    const TomatoButton = Button.extend`
+                        color: tomato;
+                        border-color: tomato;
+                    `;
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Benefits of using CSS in .js</h3>
+                <ul>
+                    <li class="fragment">Usable component abstraction</li>
+                    <li class="fragment">Isolation of CSS</li>
+                    <li class="fragment">Full power of programming</li>
+                    <li class="fragment">Good code reuse</li>
+                    <li class="fragment">Code splitting (dynamic imports)</li>
+                    <li class="fragment">Dead code elimination</li>
+                    <li class="fragment">Refactoring friendly</li>
+                    <li class="fragment">Server side rendering</li>
+                    <li class="fragment">Unit tests with styling</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Drawbacks of CSS in .js</h3>
+                <ul>
+                    <li class="fragment">Caching</li>
+                    <li class="fragment">Performance</li>
+                    <li class="fragment">Debug</li>
+                    <li class="fragment">Dependencies</li>
+                </ul>
+            </section>
+
+            <section data-markdown>
+                <textarea data-template>
+                    ### Pros and cons
+                    CSS in          | .js           | .css
+                    --------------- | ------------- | ---------
+                    Dev. experience | +             | + / -
+                    Reuse           | +             | -
+                    Code splitting  | +             | -
+                    Dead code elim. | +             | -
+                    Refactoring     | +             | -
+                    Unit tests      | +             | + / -
+                </textarea>
+            </section>
+
+            <section data-markdown>
+                <textarea data-template>
+                    ### Pros and cons
+                    CSS in          | .js           | .css
+                    --------------- | ------------- | ---------
+                    SSR             | +             | + / -
+                    Cross browser   | +             | +
+                    Interop.        | +             | +
+                    Caching         | -             | +
+                    Performance     | -             | +
+                    Debug           | + / -         | +
+                </textarea>
+            </section>
+
+            <section>
+                <h2>Thank you</h2>
+            </section>
+        </div>
+    </div>
+    <script>
+        Reveal.initialize({
+            dependencies: [
+                {
+                    src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.min.js',
+                    callback: function () {
+                        hljs.initHighlightingOnLoad();
+                    }
+                },
+                {
+                    src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js',
+                    condition: function () {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                },
+                {
+                    src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.js',
+                    condition: function () {
+                        return !!document.querySelector('[data-markdown]');
+                    }
+                },
+            ]
+        });
+    </script>
+</body>
+</html>
